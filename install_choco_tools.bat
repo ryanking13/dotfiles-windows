@@ -30,9 +30,38 @@ goto check_Permissions
     choco install sudo -y
 
     rem development packages
-    echo [*] installing git...
-    choco install git -y
-    echo [*] installing nodejs...
-    choco install nodejs -y
-    echo [*] installing python...
-    choco install python -y
+	where git > NUL
+	if %ERRORLEVEL% neq 0 (
+		echo [*] installing git...
+		choco install git -y
+	) else (
+		echo [*] git is already installed
+	)
+	where node > NUL
+	if %ERRORLEVEL% neq 0 (
+		echo [*] installing nodejs...
+		choco install nodejs -y
+	) else (
+		echo [*] nodejs is already installed
+	)
+	where python > NUL
+	if %ERRORLEVEL% neq 0 (
+		echo [*] installing python...
+		choco install python -y
+	) else (
+		echo [*] python is already installed
+	)
+	where bat > NUL
+	if %ERRORLEVEL% neq 0 (
+		echo [*] installing bat...
+		choco install bat -y
+	) else (
+		echo [*] bat is already installed
+	)
+	where goodbyedpi > NUL
+	if %ERRORLEVEL% neq 0 (
+		echo [*] installing goodbyedpi...
+		choco install goodbyedpi -y --ignore-checksums
+	) else (
+		echo [*] goodbyedpi is already installed
+	)
