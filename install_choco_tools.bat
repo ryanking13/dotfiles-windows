@@ -40,7 +40,7 @@ goto check_Permissions
 	where node > NUL
 	if %ERRORLEVEL% neq 0 (
 		echo [*] installing nodejs...
-		choco install nodejs -y
+		choco install nodejs-lts -y
 	) else (
 		echo [*] nodejs is already installed
 	)
