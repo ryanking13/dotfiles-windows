@@ -65,3 +65,10 @@ goto check_Permissions
 	) else (
 		echo [*] goodbyedpi is already installed
 	)
+	where fd > NUL
+	if %ERRORLEVEL% neq 0 (
+		echo [*] installing fd...
+		choco install fd -y
+	) else (
+		echo [*] fd is already installed
+	)
